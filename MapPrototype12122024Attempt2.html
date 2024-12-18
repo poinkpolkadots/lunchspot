@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <svg id="Map" width="1000" height="1000">
+            <image href="https://drive.google.com/file/d/1GHHsdzsaIHcYRqg6vP0YErwvW8TJ7Tnh/view?usp=drive_link" x="0" y="0" width="1000" height="1000"></image>
+            <circle method=""id="1" r="10" cx="10" cy="10" style="fill:red;stroke:red;stroke-width:1px;fill-rule:evenodd;"></circle>
+            <circle id="2"></circle>
+            <circle id="3"></circle>
+            <circle id="4"></circle>
+            <a href="https://drive.google.com/drive/folders/1NzoVeZp2XAQWcFTpqSqS3ASs8X74J9Em" target="_blank"><text id="t1"></text></a>
+            <text id="t2"></text>
+            <text id="t3"></text>
+            <text id="t4"></text>
+            Your browser does not support SVG.
+        </svg>
+        <script>
+            const x=[100,200,300,400];
+            const y=[200,400,500,800];
+            const color=["red","green","red","red"];
+            const roomNum=["SC1","SC2","SC3","SC4"];
+            for (let i=0; i<4; i++){
+                document.getElementById((i+1).toString()).setAttribute("r","10");
+                document.getElementById((i+1).toString()).setAttribute("cx",x[i].toString());
+                document.getElementById((i+1).toString()).setAttribute("cy",y[i].toString());
+                document.getElementById((i+1).toString()).setAttribute("style","fill:"+color[i]+";stroke:black;stroke-width:1;fill-rule:evenodd;");
+                document.getElementById("t"+(i+1).toString()).setAttribute("x",x[i].toString());
+                document.getElementById("t"+(i+1).toString()).setAttribute("y",(y[i]+25).toString());
+                var text=document.createTextNode(roomNum[i]);
+                document.getElementById("t"+(i+1).toString()).appendChild(text);
+                document.getElementById("t"+(i+1).toString()).setAttribute("fill","green");
+            }
+        </script>
+    </body>
+</html>
