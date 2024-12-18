@@ -12,12 +12,8 @@
             const titleText=first_name+" "+last_name+"\'s Classroom Info & Current Status:";
             const basicRoomInfo=classroom_num+"|";
             //Here's the code for making useable objects out of the info and adding it to an HTML object:
-            const titleNode=document.createTextNode(titleText);
-            const titleObj=document.getElementById("title");
-            titleObj.appendChild(titleNode);
-            const basicInfoNode=document.createTextNode(basicRoomInfo);
-            const infoObj=document.getElementById("info");
-            infoObj.appendChild(basicInfoNode);
+            document.getElementById("title").innerHTML=titleText;
+            document.getElementById("info").innerHTML=basicRoomInfo;
         </script>
         <h1 id="title" style="color:bisque;"></h1>
         <h2 id="info" style="color:grey;"></h2>
