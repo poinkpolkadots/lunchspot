@@ -3,22 +3,24 @@
         <title>John Harold Doe XVIth Page</title>
     </head>
     <body>
-        <h1 id="title" style="color:bisque;">Heylo</h1>
-        <h2 id="info" style="color:black;">How are you?!</h2>
-        <p id="openOrNo" style="color:grey;">Closed</p>
-        <p id="notices" style="color:purple;">La terre vient de exploser. Merci pour ton temps!</p>
-        <p id="fill" style="color:">N/A</p>
-        <div1 id="schedules" style="color:aquamarine">
-            <p style="color:aqua">Monday:</p>
-            <p id="monday"></p>
-            <p style="color:aqua">Tuesday:</p>
-            <p id="tuesday"></p>
-            <p style="color:aqua">Wednesday:</p>
-            <p id="wednesday"></p>
-            <p style="color:aqua">Thursday:</p>
-            <p id="thursday"></p>
-            <p style="color:aqua">Friday:</p>
-            <p id="friday"></p>
+        <div1 id= >
+            <h1 id="title" style="color:bisque;">Heylo</h1>
+            <h2 id="info" style="color:black;">How are you?!</h2>
+            <p id="openOrNo" style="color:grey;">Closed</p>
+            <p id="notices" style="color:purple;">La terre vient de exploser. Merci pour ton temps!</p>
+            <p id="fill" style="color:">N/A</p>
+            <div1 id="schedules" style="color:aquamarine">
+                <p style="color:aqua">Monday:</p>
+                <p id="monday"></p>
+                <p style="color:aqua">Tuesday:</p>
+                <p id="tuesday"></p>
+                <p style="color:aqua">Wednesday:</p>
+                <p id="wednesday"></p>
+                <p style="color:aqua">Thursday:</p>
+                <p id="thursday"></p>
+                <p style="color:aqua">Friday:</p>
+                <p id="friday"></p>
+            </div1>
         </div1>
         <script>
             //Here is where information would be imported from the databases:
@@ -31,6 +33,8 @@
             var openClosed="Closed"; //Syntax: Closed, Open
             var openStatus="Office Hours"; //Syntax: Office Hours, Quiet Lunch, Normal Lunch
             var notices=[]; //Individual messages are in the form of strings and displayed in the order of this list
+            var schedule1=[]; //Will contain when the classroom is open/closed (open a-lunch, open b-lunch, open all lunch, closed)
+            var schedule2=[]; //Will contain the expected status of the classroom (for office hours, for quiet lunch, for normal lunch, (blank))
             var fillStatus="Full"; //Syntax: Full, Almost Full, Some Space, Much Space, Empty, N/A (for closed) 
             //Below is the logic for changing the text so that it can be formatted properly later:            
             if (openClosed=="Closed"){
@@ -48,6 +52,8 @@
             //Here's the code for making useable objects out of the info and adding it to an HTML object:
             document.getElementById("title").innerHTML = titleText;
             document.getElementById("info").innerHTML = basicRoomInfo;
+            document.getElementById("openOrNo").innerHTML = openClosed;
+            document.getElementById("openOrNo").setAttribute("style","color:green;");
         </script>
     </body> 
 </html>
