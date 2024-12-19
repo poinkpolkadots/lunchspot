@@ -7,7 +7,10 @@
             <h1 id="title" style="color:bisque;">Heylo</h1>
             <h2 id="info" style="color:black;">How are you?!</h2>
             <p id="openOrNo" style="color:grey;">Closed</p>
-            <p id="notices" style="color:purple;">La terre vient de exploser. Merci pour ton temps!</p>
+            <p id="status" style="color:blue;">All Lunch</p>
+            <ol id="notices" style="color:purple;">
+                
+            </ol>
             <p id="fill" style="color:">N/A</p>
             <div1 id="schedules" style="color:aquamarine">
                 <p style="color:aqua">Monday:</p>
@@ -53,7 +56,14 @@
             document.getElementById("title").innerHTML = titleText;
             document.getElementById("info").innerHTML = basicRoomInfo;
             document.getElementById("openOrNo").innerHTML = openClosed;
-            document.getElementById("openOrNo").setAttribute("style","color:green;");
+            if (openClosed=="Open"){
+                document.getElementById("openOrNo").setAttribute("style","color:green;");
+            }
+            else if {
+                document.getElementById("openOrNo").setAttribute("style","color:green;");
+            }
+            document.getElementById("status").innerHTML = whenOpen;
+            document.getElementById("fill").innerHTML = fillStatus;
         </script>
     </body> 
 </html>
