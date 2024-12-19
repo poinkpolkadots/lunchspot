@@ -3,23 +3,51 @@
         <title>John Harold Doe XVIth Page</title>
     </head>
     <body>
+        <h1 id="title" style="color:bisque;">Heylo</h1>
+        <h2 id="info" style="color:black;">How are you?!</h2>
+        <p id="openOrNo" style="color:grey;">Closed</p>
+        <p id="notices" style="color:purple;">La terre vient de exploser. Merci pour ton temps!</p>
+        <p id="fill" style="color:">N/A</p>
+        <div1 id="schedules" style="color:aquamarine">
+            <p style="color:aqua">Monday:</p>
+            <p id="monday"></p>
+            <p style="color:aqua">Tuesday:</p>
+            <p id="tuesday"></p>
+            <p style="color:aqua">Wednesday:</p>
+            <p id="wednesday"></p>
+            <p style="color:aqua">Thursday:</p>
+            <p id="thursday"></p>
+            <p style="color:aqua">Friday:</p>
+            <p id="friday"></p>
+        </div1>
         <script>
             //Here is where information would be imported from the databases:
-            const last_name="Doe";
-            const first_name="John";
-            const classroom_num="72";
+            var last_name="Doe";
+            var first_name="John";
+            var classroom_num="72";
+            var floor_num="2";
+            var dept="Mathematics" //Syntax: CIT, Mathematics, Science, Social Studies/history, World Languages, Music, CTE, Media/Journalism,(other)
+            var whenOpen="A-Lunch Only"; //Syntax: A-Lunch Only, B-Lunch Only, All Lunch
+            var openClosed="Closed"; //Syntax: Closed, Open
+            var openStatus="Office Hours"; //Syntax: Office Hours, Quiet Lunch, Normal Lunch
+            var notices=[]; //Individual messages are in the form of strings and displayed in the order of this list
+            var fillStatus="Full"; //Syntax: Full, Almost Full, Some Space, Much Space, Empty, N/A (for closed) 
+            //Below is the logic for changing the text so that it can be formatted properly later:            
+            if (openClosed=="Closed"){
+                openStatus="everyone";
+                if (whenOpen=="A-Lunch Only"){
+                    whenOpen="B-Lunch Only";
+                }
+                else if (whenOpen=="B-Lunch Only"){
+                    whenOpen="A-Lunch Only";
+                }
+            }
             //Here is the code for formatting that information:
-            const titleText=first_name+" "+last_name+"\'s Classroom Info & Current Status:";
-            const basicRoomInfo=classroom_num+"|";
+            var titleText=first_name+" "+last_name+"\'s Classroom Info & Current Status:";
+            var basicRoomInfo=classroom_num+"|Floor #"+floor_num+"|Departement: "+dept;
             //Here's the code for making useable objects out of the info and adding it to an HTML object:
-            const titleNode=document.createTextNode(titleText);
-            const titleObj=document.getElementById("title");
-            titleObj.appendChild(titleNode);
-            const basicInfoNode=document.createTextNode(basicRoomInfo);
-            const infoObj=document.getElementById("info");
-            infoObj.appendChild(basicInfoNode);
+            document.getElementById("title").innerHTML = titleText;
+            document.getElementById("info").innerHTML = basicRoomInfo;
         </script>
-        <h1 id="title" style="color:bisque;"></h1>
-        <h2 id="info" style="color:grey;"></h2>
     </body> 
 </html>
