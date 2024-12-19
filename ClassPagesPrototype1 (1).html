@@ -8,11 +8,25 @@
         <p id="openOrNo" style="color:grey;">Closed</p>
         <p id="notices" style="color:purple;">La terre vient de exploser. Merci pour ton temps!</p>
         <p id="fill" style="color:">N/A</p>
+        <div1 id="schedules" style="color:aquamarine">
+            <p style="color:aqua">Monday:</p>
+            <p id="monday"></p>
+            <p style="color:aqua">Tuesday:</p>
+            <p id="tuesday"></p>
+            <p style="color:aqua">Wednesday:</p>
+            <p id="wednesday"></p>
+            <p style="color:aqua">Thursday:</p>
+            <p id="thursday"></p>
+            <p style="color:aqua">Friday:</p>
+            <p id="friday"></p>
+        </div1>
         <script>
             //Here is where information would be imported from the databases:
             var last_name="Doe";
             var first_name="John";
             var classroom_num="72";
+            var floor_num="2";
+            var dept="Mathematics" //Syntax: CIT, Mathematics, Science, Social Studies/history, World Languages, Music, CTE, Media/Journalism,(other)
             var whenOpen="A-Lunch Only"; //Syntax: A-Lunch Only, B-Lunch Only, All Lunch
             var openClosed="Closed"; //Syntax: Closed, Open
             var openStatus="Office Hours"; //Syntax: Office Hours, Quiet Lunch, Normal Lunch
@@ -30,7 +44,7 @@
             }
             //Here is the code for formatting that information:
             var titleText=first_name+" "+last_name+"\'s Classroom Info & Current Status:";
-            var basicRoomInfo=classroom_num+"|";
+            var basicRoomInfo=classroom_num+"|Floor #"+floor_num+"|Departement: "+dept;
             //Here's the code for making useable objects out of the info and adding it to an HTML object:
             document.getElementById("title").innerHTML = titleText;
             document.getElementById("info").innerHTML = basicRoomInfo;
