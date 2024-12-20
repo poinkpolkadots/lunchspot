@@ -3,28 +3,26 @@
         <title>John Harold Doe XVIth Page</title>
     </head>
     <body>
-        <div1 id= >
-            <h1 id="title" style="color:bisque;">Heylo</h1>
-            <h2 id="info" style="color:black;">How are you?!</h2>
-            <p id="openOrNo" style="color:grey;">Closed</p>
-            <p id="when" style="color:rgb(255, 248, 47);">All Lunch</p>
-            <p id="status style="color:green;"></p>
-            <ol id="notices" style="color:purple;">
-                
-            </ol>
-            <p id="fill" style="color:orange">N/A</p>
-            <div1 id="schedules" style="color:aquamarine">
-                <p style="color:aqua">Monday:</p>
-                <p id="monday"></p>
-                <p style="color:aqua">Tuesday:</p>
-                <p id="tuesday"></p>
-                <p style="color:aqua">Wednesday:</p>
-                <p id="wednesday"></p>
-                <p style="color:aqua">Thursday:</p>
-                <p id="thursday"></p>
-                <p style="color:aqua">Friday:</p>
-                <p id="friday"></p>
-            </div1>
+        <h1 id="title" style="color:bisque;">Heylo</h1>
+        <h2 id="info" style="color:black;">How are you?!</h2>
+        <h3 id="openOrNo" style="color:grey;">Closed</h3>
+        <h3 id="status" style="color:green">Office Hours</h3>
+        <p id="fill" style="color:orange">Almost Full</p>
+        <br>
+        <h2 style="color:purple">Notices:</h2>
+        <ul id="notices" style="color:purple;"></ul>
+        <h2 style="color:aquamarine;">Usual Schedule:</h2>
+        <div1 id="schedules" style="color:aquamarine">
+            <p style="color:aqua">Monday:</p>
+            <p id="monday"></p>
+            <p style="color:aqua">Tuesday:</p>
+            <p id="tuesday"></p>
+            <p style="color:aqua">Wednesday:</p>
+            <p id="wednesday"></p>
+            <p style="color:aqua">Thursday:</p>
+            <p id="thursday"></p>
+            <p style="color:aqua">Friday:</p>
+            <p id="friday"></p>
         </div1>
         <script>
             //Here is where information would be imported from the databases:
@@ -36,13 +34,14 @@
             var whenOpen="A-Lunch Only"; //Syntax: A-Lunch Only, B-Lunch Only, All Lunch
             var openClosed="Closed"; //Syntax: Closed, Open
             var openStatus="Office Hours"; //Syntax: Office Hours, Quiet Lunch, Normal Lunch
-            var notices=[]; //Individual messages are in the form of strings and displayed in the order of this list
-            var schedule1=[]; //Will contain when the classroom is open/closed (open a-lunch, open b-lunch, open all lunch, closed)
-            var schedule2=[]; //Will contain the expected status of the classroom (for office hours, for quiet lunch, for normal lunch, (blank))
+            var notices=["Maintenence today...","The world just exploded."]; //Individual messages are in the form of strings and displayed in the order of this list
+            var dailySchedule=["A-Lunch Only", "B-Lunch Only", "Office Hours", "Closed (meeting)", "Normal Lunch"]
             var fillStatus="Full"; //Syntax: Full, Almost Full, Some Space, Much Space, Empty, N/A (for closed) 
             //Below is the logic for changing the text so that it can be formatted properly later:            
             if (openClosed=="Closed"){
-                openStatus="everyone";
+                openStatus="for all students";
+                document.getElementById("status").setAttribute("style","color:red;");
+                fillStatus = "N/A"
                 if (whenOpen=="A-Lunch Only"){
                     whenOpen="B-Lunch Only";
                 }
@@ -55,16 +54,19 @@
             var basicRoomInfo=classroom_num+"|Floor #"+floor_num+"|Departement: "+dept;
             //Here's the code for making useable objects out of the info and adding it to an HTML object:
             document.getElementById("title").innerHTML = titleText;
+            document.getElementById("openOrNo").innerHTML =  openClosed+ " for " + whenOpen;
+            document.getElementById("status").innerHTML =  openStatus;
             document.getElementById("info").innerHTML = basicRoomInfo;
-            document.getElementById("openOrNo").innerHTML = openClosed;
-            if (openClosed=="Open"){
-                document.getElementById("openOrNo").setAttribute("style","color:green;");
+            document.getElementById("fill").innerHTML = "Is it full? "+fillStatus;
+            //Broken code for displaying schedule & notices
+            for (let i=0; i<notices.length(); i++){
+                var tempObj1=document.getElementById("notices").appendChild("li");
+                tempObj1.innerHTML=notices[i];
             }
-            else if {
-                document.getElementById("openOrNo").setAttribute("style","color:green;");
+            for (let i=0; i<dailySchedule.length()-1; i++){
+                var daysOfWeek=["monday","tuesday","wednesday","thursday","friday"];
+                document.getElementById(daysOfWeek[i]).innerHTML=dailySchedule[i];
             }
-            document.getElementById("when").innerHTML = whenOpen;
-            document.getElementById("fill").innerHTML = fillStatus;
         </script>
     </body> 
 </html>
