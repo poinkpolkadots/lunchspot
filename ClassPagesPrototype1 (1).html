@@ -1,47 +1,53 @@
 <html>
     <head>
-        <title>John Harold Doe XVIth Page</title>
+        <title id="titleHeader">John Harold Doe XVIth Page</title>
     </head>
     <body>
+        <!--Here's a nice header right here-->
         <h1 id="title" style="color:bisque;">Heylo</h1>
         <h2 id="info" style="color:black;">How are you?!</h2>
+        <!--All of these show the status in big easy-to-see letters-->
         <h3 id="openOrNo" style="color:grey;">Closed</h3>
         <h3 id="status" style="color:green">Office Hours</h3>
         <p id="fill" style="color:orange">Almost Full</p>
         <br>
+        <!--Here is extra information that is useful to know for future visits-->
         <h2 style="color:purple">Notices:</h2>
-        <ul id="notices" style="color:purple;"></ul>
-        <h2 style="color:aquamarine;">Usual Schedule:</h2>
+        <ul id="notices" style="color:blueviolet;">
+        </ul>
+        <h2 style="color:cyan;">Usual Schedule:</h2>
         <div1 id="schedules" style="color:aquamarine">
-            <p style="color:aqua">Monday:</p>
+            <p style="color:lightcoral">Monday:</p>
             <p id="monday"></p>
-            <p style="color:aqua">Tuesday:</p>
+            <p style="color:lightcoral">Tuesday:</p>
             <p id="tuesday"></p>
-            <p style="color:aqua">Wednesday:</p>
+            <p style="color:lightcoral">Wednesday:</p>
             <p id="wednesday"></p>
-            <p style="color:aqua">Thursday:</p>
+            <p style="color:lightcoral">Thursday:</p>
             <p id="thursday"></p>
-            <p style="color:aqua">Friday:</p>
+            <p style="color:lightcoral">Friday:</p>
             <p id="friday"></p>
         </div1>
         <script>
             //Here is where information would be imported from the databases:
-            var last_name="Doe";
-            var first_name="John";
-            var classroom_num="72";
-            var floor_num="2";
-            var dept="Mathematics" //Syntax: CIT, Mathematics, Science, Social Studies/history, World Languages, Music, CTE, Media/Journalism,(other)
-            var whenOpen="A-Lunch Only"; //Syntax: A-Lunch Only, B-Lunch Only, All Lunch
-            var openClosed="Closed"; //Syntax: Closed, Open
-            var openStatus="Office Hours"; //Syntax: Office Hours, Quiet Lunch, Normal Lunch
-            var notices=["Maintenence today...","The world just exploded."]; //Individual messages are in the form of strings and displayed in the order of this list
-            var dailySchedule=["A-Lunch Only", "B-Lunch Only", "Office Hours", "Closed (meeting)", "Normal Lunch"]
-            var fillStatus="Full"; //Syntax: Full, Almost Full, Some Space, Much Space, Empty, N/A (for closed) 
-            //Below is the logic for changing the text so that it can be formatted properly later:            
+            var last_name="Norris";
+            var first_name="Lynne";
+            var classroom_num="SC4";
+            var floor_num="1";
+            var dept="CIT" //Syntax: CIT, Mathematics, Science, Social Studies/history, World Languages, Music, CTE, Media/Journalism,(other)
+            var whenOpen="All Lunch"; //Syntax: A-Lunch Only, B-Lunch Only, All Lunch
+            var openClosed="Open"; //Syntax: Closed, Open
+            var openStatus="Quiet Lunch"; //Syntax: Office Hours, Quiet Lunch, Normal Lunch
+            const notices=["I will not be open next week due to it being winter break."]; //Individual messages are in the form of strings and displayed in the order of this list
+            const dailySchedule=["A-Lunch Only", "B-Lunch Only", "Office Hours", "Closed (meeting)", "Normal Lunch"]
+            var fillStatus="Almost Full"; //Syntax: Full, Almost Full, Some Space, Much Space, Empty, N/A (for closed)         
             if (openClosed=="Closed"){
+                //This code means that the correct message is conveyed
                 openStatus="for all students";
+                document.getElementById("openOrNo").setAttribute("style","color:grey;");
                 document.getElementById("status").setAttribute("style","color:red;");
                 fillStatus = "N/A"
+                //Below is the logic for changing whenOpen into when the class is closed, so if the class is closed, whenOpen is in reality whenClosed  
                 if (whenOpen=="A-Lunch Only"){
                     whenOpen="B-Lunch Only";
                 }
@@ -49,23 +55,31 @@
                     whenOpen="A-Lunch Only";
                 }
             }
-            //Here is the code for formatting that information:
+            else if (openClosed=="Open"){
+                //This code ensures that people have color indicators for the openStatus of the room
+                document.getElementById("openOrNo").setAttribute("style","color:green;");
+                if (openStatus=="Office Hours" || openStatus=="Quiet Lunch"){
+                        document.getElementById("status").setAttribute("style","color:gold;");
+                }
+            }
+            //Here is the code for formatting class information:
             var titleText=first_name+" "+last_name+"\'s Classroom Info & Current Status:";
             var basicRoomInfo=classroom_num+"|Floor #"+floor_num+"|Departement: "+dept;
-            //Here's the code for making useable objects out of the info and adding it to an HTML object:
+            //Here's the code for filling info into the existing HTML objects:
             document.getElementById("title").innerHTML = titleText;
+            document.getElementById("titleHeader").innerHTML = titleText;
             document.getElementById("openOrNo").innerHTML =  openClosed+ " for " + whenOpen;
             document.getElementById("status").innerHTML =  openStatus;
             document.getElementById("info").innerHTML = basicRoomInfo;
             document.getElementById("fill").innerHTML = "Is it full? "+fillStatus;
-            //Broken code for displaying schedule & notices
-            for (let i=0; i<notices.length(); i++){
-                var tempObj1=document.getElementById("notices").appendChild("li");
-                tempObj1.innerHTML=notices[i];
-            }
-            for (let i=0; i<dailySchedule.length()-1; i++){
+            //This code sets the schedule & notices sections to the information in the dailySchedule and notices lists:
+            for (let i=0; i<5; i++){
                 var daysOfWeek=["monday","tuesday","wednesday","thursday","friday"];
                 document.getElementById(daysOfWeek[i]).innerHTML=dailySchedule[i];
+            }
+            for (let i=0; i<(notices.length); i++){
+                tempObj1=document.getElementById("notices").appendChild(document.createElement("li"));
+                tempObj1.innerHTML=notices[i];
             }
         </script>
     </body> 
