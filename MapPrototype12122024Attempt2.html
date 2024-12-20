@@ -6,35 +6,69 @@
     <body>
         <svg id="Map" width="1500" height="1000">
             <image href="https://drive.google.com/thumbnail?id=1GHHsdzsaIHcYRqg6vP0YErwvW8TJ7Tnh" x="0" y="0" width="750" height="1000"></image>
-            <image href="https://drive.google.com/thumbnail?id=1GHHsdzsaIHcYRqg6vP0YErwvW8TJ7Tnh" x="750" y="0" width="750" height="1000"></image>
+            <image href="https://drive.google.com/thumbnail?id=1_UYraI_g1ow_q1EWhGGCnvONZwo_89DO" x="750" y="0" width="750" height="1000"></image>
+            //Below is repetitive code for defining objects (code in the works):
             <circle method=""id="1" r="10" cx="10" cy="10" style="fill:red;stroke:red;stroke-width:1px;fill-rule:evenodd;"></circle>
             <circle id="2"></circle>
             <circle id="3"></circle>
             <circle id="4"></circle>
+            <circle id="5"></circle>
+            <circle id="6"></circle>
+            <circle id="7"></circle>
+            <circle id="8"></circle>
+            <circle id="9"></circle>
+            <circle id="10"></circle>
+            <circle id="11"></circle>
+            <circle id="12"></circle>
+            <circle id="13"></circle>
+            <circle id="14"></circle>
+            <circle id="15"></circle>
+            <circle id="16"></circle>
+            <circle id="17"></circle>
+            <circle id="18"></circle>
+            <circle id="19"></circle>
+            <circle id="20"></circle>
             <a href="https://drive.google.com/drive/folders/1NzoVeZp2XAQWcFTpqSqS3ASs8X74J9Em" target="_blank"><text id="t1"></text></a>
             <text id="t2"></text>
             <text id="t3"></text>
             <text id="t4"></text>
+            <text id="t5"></text>
+            <text id="t6"></text>
+            <text id="t7"></text>
+            <text id="t8"></text>
+            <text id="t9"></text>
+            <text id="t10"></text>
+            <text id="t11"></text>
+            <text id="t12"></text>
+            <text id="t13"></text>
+            <text id="t14"></text>
+            <text id="t15"></text>
+            <text id="t16"></text>
+            <text id="t17"></text>
+            <text id="t18"></text>
+            <text id="t19"></text>
+            <text id="t20"></text>
             Your browser does not support SVG.
         </svg>
         <script>
             //x,y, and roomNum will be constant. Maybe we should put them in a dataset for safe keeping?
-            const x=[100,200,300,400];
-            const y=[200,400,500,800];
+            const x=[430,455,480,505,455,480,530,530,530,530,530,530,530,630,630,630,630,630,630,630];
+            const y=[725,725,725,725,765,765,545,575,605,635,665,695,725,545,575,605,635,665,695,725];
             //This needs to be wired up to the datasets for room statuses:
-            const color=["red","green","red","red","yellow","red","green","yellow","red","yellow"]; 
+            const color=["red","green","red","red","yellow","red","green","yellow","red","yellow","green","green","green","red","red","red","red","red","red","red","yellow","red","yellow","green"]; 
             //Syntax: green - currently open | yellow - office hours, quiet lunch, or special status | red - closed            
-            const roomNum=["SC1","SC2","SC3","SC4"];
-            for (let i=0; i<4; i++){
+            const roomNum=["SC1","SC2","SC3","SC4","101","102","117","115","113","111","109","107","RR","119","118","116","114","112","108","106"];
+            for (let i=0; i<20; i++){
                 document.getElementById((i+1).toString()).setAttribute("r","10");
                 document.getElementById((i+1).toString()).setAttribute("cx",x[i].toString());
                 document.getElementById((i+1).toString()).setAttribute("cy",y[i].toString());
                 document.getElementById((i+1).toString()).setAttribute("style","fill:"+color[i]+";stroke:black;stroke-width:1;fill-rule:evenodd;");
-                document.getElementById("t"+(i+1).toString()).setAttribute("x",x[i].toString());
-                document.getElementById("t"+(i+1).toString()).setAttribute("y",(y[i]+25).toString());
+                document.getElementById("t"+(i+1).toString()).setAttribute("x",x[i].toString()-10);
+                document.getElementById("t"+(i+1).toString()).setAttribute("y",(y[i]+18).toString());
                 var text=document.createTextNode(roomNum[i]);
                 document.getElementById("t"+(i+1).toString()).appendChild(text);
-                document.getElementById("t"+(i+1).toString()).setAttribute("fill","green");
+                document.getElementById("t"+(i+1).toString()).setAttribute("fill","lightblue");
+                document.getElementById("t"+(i+1).toString()).setAttribute("font-size","11");
             }
         </script>
     </body>
