@@ -4,8 +4,9 @@
 
     </head>
     <body>
-        <svg id="Map" width="1000" height="1000">
-            <image href="https://drive.google.com/thumbnail?id=1GHHsdzsaIHcYRqg6vP0YErwvW8TJ7Tnh" x="0" y="0" width="1000" height="1000"></image>
+        <svg id="Map" width="1500" height="1000">
+            <image href="https://drive.google.com/thumbnail?id=1GHHsdzsaIHcYRqg6vP0YErwvW8TJ7Tnh" x="0" y="0" width="750" height="1000"></image>
+            <image href="https://drive.google.com/thumbnail?id=1GHHsdzsaIHcYRqg6vP0YErwvW8TJ7Tnh" x="0" y="0" width="750" height="1000"></image>
             <circle method=""id="1" r="10" cx="10" cy="10" style="fill:red;stroke:red;stroke-width:1px;fill-rule:evenodd;"></circle>
             <circle id="2"></circle>
             <circle id="3"></circle>
@@ -17,9 +18,12 @@
             Your browser does not support SVG.
         </svg>
         <script>
+            //x,y, and roomNum will be constant. Maybe we should put them in a dataset for safe keeping?
             const x=[100,200,300,400];
             const y=[200,400,500,800];
-            const color=["red","green","red","red"];
+            //This needs to be wired up to the datasets for room statuses:
+            const color=["red","green","red","red","yellow","red","green","yellow","red","yellow"]; 
+            //Syntax: green - currently open | yellow - office hours, quiet lunch, or special status | red - closed            
             const roomNum=["SC1","SC2","SC3","SC4"];
             for (let i=0; i<4; i++){
                 document.getElementById((i+1).toString()).setAttribute("r","10");
