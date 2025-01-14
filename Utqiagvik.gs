@@ -1,10 +1,13 @@
 function lastNaams() {
-  //set where last names are stored
+  //ty Googl for your decent documentation
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  //set where first names are stored 
   a=[];
   return a;
 }
 function firstNaams() {
-  //set wher first names are stored
+  //set where first names are stored
   a=[];
   return a;
 }
